@@ -7,9 +7,15 @@
 //
 
 #include <iostream>
-
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+#include <fstream>
+using namespace std;
+int main() {
+    ofstream inf("/Users/s20181106278/Desktop/inf.txt");
+    if (inf.is_open())
+    {
+        inf << "This is a line.\n";
+        inf << "This is another line.\n";
+        inf.close();
+    }
     return 0;
 }
