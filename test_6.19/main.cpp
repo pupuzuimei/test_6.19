@@ -6,11 +6,15 @@ void setup() {
     pinMode(pin,OUTPUT);
 }
 
-
+String com = "";
 void loop() {
     
-    val = Serial.read();
-    switch (val)
+    //val[100] = Serial.read();
+    while(Serial.available()>0)
+    {
+    	com += char(Serial.read());
+		//每次读一个char字符，并相加 
+		switch (com)
     {
         case 'a':
         {
@@ -445,6 +449,8 @@ void loop() {
             break;
         }
     }
+    
+	}
     
     
     
