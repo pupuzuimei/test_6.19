@@ -1,5 +1,7 @@
 int pin = 13;
 int val;
+int mark = 0;
+String comdata = "";//定义字符串变量，赋值为空值 
 void setup() {
     
     Serial.begin(9600);
@@ -7,560 +9,413 @@ void setup() {
 }
 
 String com = "";
-void loop() {
+void loop() 
+{
     
     //val[100] = Serial.read();
+    //不断循环检测串口缓存，一个个读入字符串 
     while(Serial.available()>0)
     {
+    	//读入之后将字符串串接到comdata上 
     	com += char(Serial.read());
 		//每次读一个char字符，并相加 
-		switch (com)
-    {
-        case 'a':
-        {
-            Serial.println("a");
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'b':
-        {
-            Serial.println("b");
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            for(int i=0;i<3;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'c':
-        {
-            Serial.println("c");
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'd':
-        {
-            Serial.println("d");
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'e':
-        {
-            Serial.println("e");
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'f':
-        {
-            Serial.println("f");
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'g':
-        {
-            Serial.println("g");
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'h':
-        {
-            Serial.println("h");
-            for(int i=0;i<4;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'i':
-        {
-            Serial.println("i");
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'j':
-        {
-            Serial.println("j");
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            for(int i=0;i<3;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'k':
-        {
-            Serial.println("k");
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'l':
-        {
-            Serial.println("l");
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'm':
-        {
-            Serial.println("m");
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'n':
-        {
-            Serial.println("n");
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'o':
-        {
-            Serial.println("o");
-            for(int i=0;i<3;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'p':
-        {
-            Serial.println("p");
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'q':
-        {
-            Serial.println("q");
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'r':
-        {
-            Serial.println("r");
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 's':
-        {
-            Serial.println("s");
-            for(int i=0;i<3;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 't':
-        {
-            Serial.println("t");
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'u':
-        {
-            Serial.println("u");
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'v':
-        {
-            Serial.println("v");
-            for(int i=0;i<3;i++)
-            {
-                digitalWrite(pin,HIGH)
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'w':
-        {
-            Serial.println("w");
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'x':
-        {
-            Serial.println("x");
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            
-            break;
-        }
-        case 'y':
-        {
-            Serial.println("y");
-            digitalWrite(pin,HIGH);
-            delay(5000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            digitalWrite(pin,HIGH);
-            delay(1000);
-            digitalWrite(pin,LOW);
-            delay(1000);
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-        case 'z':
-        {
-            Serial.println("z");
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(5000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            for(int i=0;i<2;i++)
-            {
-                digitalWrite(pin,HIGH);
-                delay(1000);
-                digitalWrite(pin,LOW);
-                delay(1000);
-            }
-            
-            break;
-        }
-    }
-    
+		delay(2);//延时一会
+		mark = 1;
 	}
-    
-    
-    
-    /*if(val="hello world")
-     {
-     //h
-     for(int i=0;i<4;i++)
-     {
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     }
-     //e
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     //ll
-     for(int i=0;i<2;i++)
-     {
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     digitalWrite(pin,HIGH);//点亮
-     delay(5000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     for(int j=0;j<2;j++)
-     {
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     }
-     }
-     //o
-     for(int i=0;i<3;i++)
-     {
-     digitalWrite(pin,HIGH);//点亮
-     delay(5000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     }
-     //w
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     for(int i=0;i<2;i++)
-     {
-     digitalWrite(pin,HIGH);//点亮
-     delay(5000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     }
-     //o
-     for(int i=0;i<3;i++)
-     {
-     digitalWrite(pin,HIGH);//点亮
-     delay(5000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     }
-     //r
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     digitalWrite(pin,HIGH);//点亮
-     delay(5000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     //l
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     digitalWrite(pin,HIGH);//点亮
-     delay(5000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     for(int j=0;j<2;j++)
-     {
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     }
-     //d
-     digitalWrite(pin,HIGH);//点亮
-     delay(5000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     digitalWrite(pin,HIGH);//点亮
-     delay(1000);
-     digitalWrite(pin,LOW);//熄灭
-     delay(1000);
-     
-     
-     Serial.println("Hello World!");//显示“Hello World！”字符串
-     }
-     */
+	if(mark == 1)
+	{
+		Serial.println(comdata);
+		for(int i = 0;i<comdata.length();i++)
+		{
+			if(comdata[i] == ' ')
+			{
+				digitalWrite(pin,HIGH);
+	            delay(3000);
+	            digitalWrite(pin,LOW);
+	            delay(3000);
+			}
+			else if(comdata[i] == 'a')
+			{
+				Serial.println("a");
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'b')
+			{
+				Serial.println("b");
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            for(int i=0;i<3;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'c')
+			{
+				Serial.println("c");
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'd')
+			{
+				Serial.println("d");
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'e')
+			{
+				Serial.println("e");
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'f')
+			{
+				Serial.println("f");
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'g')
+			{
+				Serial.println("g");
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+	            
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'h')
+			{
+				Serial.println("h");
+	            for(int i=0;i<4;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'i')
+			{
+				Serial.println("i");
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'j')
+			{
+				Serial.println("j");
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            for(int i=0;i<3;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'k')
+			{
+				Serial.println("k");
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'l')
+			{
+				Serial.println("l");
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'm')
+			{
+				Serial.println("m");
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'n')
+			{
+				Serial.println("n");
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'o')
+			{
+				Serial.println("o");
+	            for(int i=0;i<3;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'p')
+			{
+				Serial.println("p");
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'q')
+			{
+				Serial.println("q");
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'r')
+			{
+				Serial.println("r");
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 's')
+			{
+				Serial.println("s");
+	            for(int i=0;i<3;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 't')
+			{
+				Serial.println("t");
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'u')
+			{
+				Serial.println("u");
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'v')
+			{
+				Serial.println("v");
+	            for(int i=0;i<3;i++)
+	            {
+	                digitalWrite(pin,HIGH)
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'w')
+			{
+				Serial.println("w");
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'x')
+			{
+				Serial.println("x");
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+			}
+			else if(comdata[i] == 'y')
+			{
+				Serial.println("y");
+	            digitalWrite(pin,HIGH);
+	            delay(5000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            digitalWrite(pin,HIGH);
+	            delay(1000);
+	            digitalWrite(pin,LOW);
+	            delay(1000);
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+			else if(comdata[i] == 'z')
+			{
+				Serial.println("z");
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(5000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+	            for(int i=0;i<2;i++)
+	            {
+	                digitalWrite(pin,HIGH);
+	                delay(1000);
+	                digitalWrite(pin,LOW);
+	                delay(1000);
+	            }
+			}
+		}
+	}
+	
+      
 }
